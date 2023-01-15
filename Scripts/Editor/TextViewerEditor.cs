@@ -43,10 +43,14 @@ namespace Kmnk.TextViewer
         {
             FindProperties();
 
-            var udon = _target.GetChildUdonBehaviour<Udon.TextViewer>();
-            udon.SetPublicVariable("_textAsset", _textAssetProperty.objectReferenceValue as TextAsset);
+            var udon = _target.GetComponentInChildren<Udon.TextViewer>();
             udon.GetComponentInChildren<Text>().fontSize = _textSizeProperty.intValue;
             udon.GetComponentInChildren<Text>().color = _textColorProperty.colorValue;
+
+            var udonSerializedObject = new SerializedObject(udon);
+            udonSerializedObject.FindProperty("_textAsset").objectReferenceValue
+                = _textAssetProperty.objectReferenceValue as TextAsset;
+            udonSerializedObject.ApplyModifiedProperties();
         }
     }
 }

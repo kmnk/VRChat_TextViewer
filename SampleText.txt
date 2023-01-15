@@ -5,7 +5,7 @@ See the manual at <color="blue">https://docs.unity3d.com/ja/2019.4/Manual/Styled
 
 --
 
-Text Viewer v0.0.1
+Text Viewer v1.1.0
 
 MIT License
 Copyright (c) 2022 KMNK
